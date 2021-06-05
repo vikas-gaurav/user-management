@@ -1,0 +1,18 @@
+<div *ngIf="usersList" class="users-list-container">
+    <div class="row">
+        <div *ngFor="let user of usersList" class="col-12 col-md-4">
+            <div  class="profile-card hover-shadow shadow-sm mt-2 border rounded overflow-hidden">
+                <div class="banner position-relative">
+                    <div *ngIf="user.avatar" class="avatar rounded-circle border overflow-hidden position-relative">
+                        <img [src]="user.avatar" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="profile-details px-3 pb-2">
+                    <h3 *ngIf="user.first_name && user.last_name" class="name">
+                        {{user.first_name + " "+ user.last_name}}</h3>
+                    <div *ngIf="user.email" class="email">{{user.email}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

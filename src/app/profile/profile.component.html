@@ -1,0 +1,13 @@
+<div class="profile-container">
+    <div *ngIf="userProfile" class="profile-card mt-2 border rounded overflow-hidden">
+        <div class="banner position-relative">
+            <div *ngIf="userProfile.avatar" class="avatar rounded-circle border overflow-hidden position-relative">
+                <img [src]="userProfile.avatar" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="profile-details px-3 pb-2">
+            <h3 *ngIf="userProfile.first_name && userProfile.last_name" class="name">{{userProfile.first_name + " "+ userProfile.last_name}}</h3>
+            <div *ngIf="userProfile.email" class="email">{{userProfile.email}}</div>
+        </div>
+    </div>
+</div>

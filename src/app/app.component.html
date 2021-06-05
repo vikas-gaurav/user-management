@@ -1,0 +1,33 @@
+<div class="app-container container-fluid d-flex flex-column vh-100">
+  <!-- app header -->
+  <div *ngIf="authenticatedUser" class="app-header row bg-dark text-white">
+    <div class="col-12 py-2 px-3">
+      <span class="logo font-bold">Users</span>
+    </div>
+  </div>
+  <!-- app body -->
+  <div class="row bg-light flex-grow-1">
+    <!-- menu panel -->
+    <div *ngIf="authenticatedUser" class="col-2 px-0 menu-panel bg-dark text-white">
+      <a routerLink="users" routerLinkActive="active bg-success" class="menu-item hover-btn-effect d-block text-white p-3">
+        <span class="icon px-2 fa fa-list"></span>
+        <span class="item">User List</span>
+      </a>
+      <a routerLink="profile" routerLinkActive="active bg-success" class="menu-item hover-btn-effect d-block text-white p-3">
+        <span class="icon px-2 fa fa-user"></span>
+        <span class="item">Profile</span>
+      </a>
+      <a routerLink="settings" routerLinkActive="active bg-success" class="menu-item hover-btn-effect d-block text-white p-3">
+        <span class="icon px-2 fa fa-cog"></span>
+        <span class="item">Settings</span>
+      </a>
+      <div (click)="logout()" routerLinkActive="active bg-success" class="menu-item hover-btn-effect d-block text-white p-3">
+        <span class="icon px-2 fa fa-lock"></span>
+        <span class="item">Logout</span>
+      </div>
+    </div>
+    <div [ngClass]="['router-outlet-container',authenticatedUser? 'col-10': 'col-12']">
+      <router-outlet></router-outlet>
+    </div>
+  </div>  
+</div>
